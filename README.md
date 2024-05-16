@@ -1,5 +1,7 @@
 # Домашнее задание к лекции «Контейнеры»
 
+[![Build status](https://ci.appveyor.com/api/projects/status/3m358buh2n671mbq?svg=true)](https://ci.appveyor.com/project/Professor-Severus-Snape/ajs-set-map)
+
 ## Важно:
 1. Код должен проходить ESLint без ошибок.
 2. Unit-тесты должны обеспечивать 100% покрытие тестируемых функций и классов по строкам.

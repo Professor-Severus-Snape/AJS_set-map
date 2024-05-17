@@ -12,7 +12,7 @@ test('testing settings without setter', () => {
   expect(settings.appearance).toEqual(expected);
 });
 
-test('testing settings with setter and unvalid key-values', () => {
+test('testing settings with setter and unvalid key-value', () => {
   const settings = new Settings();
   settings.appearance = { theme: 'light', WTF: 'WTF', music: 'chillout' };
 

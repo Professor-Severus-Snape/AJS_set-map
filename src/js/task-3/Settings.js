@@ -30,8 +30,7 @@ export default class Settings {
   // геттер, возвращающий конечные настройки для юзера:
   get appearance() {
     if (this.usersSettings) {
-      const result = new Map();
-      this.defaultSettings.forEach((value, key) => result.set(key, value));
+      const result = new Map(this.defaultSettings);
       this.usersSettings.forEach((value, key) => result.set(key, value));
       return result;
     }

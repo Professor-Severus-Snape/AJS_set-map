@@ -9,15 +9,13 @@ test('testing .add() method with new characters', () => {
   teamSet.add(bowman); // добавление одного персонажа
   teamSet.add(daemon); // добавление ещё одного персонажа
 
-  const expected = {
-    members: new Set([
-      { name: 'лучник', type: 'Bowman' }, // NOTE: почему здесь не важна последовательность ???
-      { name: 'демон', type: 'Daemon' },
-      // { name: 'лучник', type: 'Bowman' }, // NOTE: почему здесь не важна последовательность ???
-    ]),
-  };
+  const expected = [
+    bowman,
+    daemon,
+  ];
 
-  expect(teamSet).toEqual(expected);
+  // Проверка последовательности элементов в коллекции Set: массивы + .toStrictEqual():
+  expect([...teamSet.members]).toStrictEqual(expected);
 });
 
 test('testing .add() method with currently added characters', () => {
@@ -35,16 +33,13 @@ test('testing .addAll() method', () => {
 
   teamSet.addAll(swordsman, undead, zombie, undead); // добавление неск.персонажей (undead - 2раза)
 
-  const expected = {
-    members: new Set([
-      { name: 'мечник', type: 'Swordsman' },
-      { name: 'нежить', type: 'Undead' }, // NOTE: почему здесь не важна последовательность ???
-      { name: 'зомби', type: 'Zombie' },
-      // { name: 'нежить', type: 'Undead' }, // NOTE: почему здесь не важна последовательность ???
-    ]),
-  };
+  const expected = [
+    swordsman,
+    undead,
+    zombie,
+  ];
 
-  expect(teamSet).toEqual(expected);
+  expect([...teamSet.members]).toStrictEqual(expected);
 });
 
 test('testing .toArray() method', () => {
@@ -59,13 +54,13 @@ test('testing .toArray() method', () => {
   teamSet.addAll(bowman, daemon, magician, swordsman, undead, zombie); // добавление неск.персонажей
 
   const expected = [
-    { name: 'лучник', type: 'Bowman' },
-    { name: 'демон', type: 'Daemon' },
-    { name: 'маг', type: 'Magician' },
-    { name: 'мечник', type: 'Swordsman' },
-    { name: 'нежить', type: 'Undead' },
-    { name: 'зомби', type: 'Zombie' },
+    bowman,
+    daemon,
+    magician,
+    swordsman,
+    undead,
+    zombie,
   ];
 
-  expect(teamSet.toArray()).toEqual(expected);
+  expect(teamSet.toArray()).toStrictEqual(expected);
 });
